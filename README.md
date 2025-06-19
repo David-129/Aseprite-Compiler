@@ -1,4 +1,4 @@
-# Aseprite-One-Click-Builder-for-Windows
+# Aseprite-Compiler
 Build stable Aseprite + installer in one clean, automated batch script.
 
 ## 📦 Aseprite Auto Build Script
