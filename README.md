@@ -1,6 +1,10 @@
 # Aseprite-Compiler
 Build stable Aseprite + installer in one clean, automated batch script.
 
+> ⚠️ **Legal Notice**: By downloading or using this script, you agree to the terms of the included [custom license](LICENSE).  
+> This script is provided **only for personal and educational purposes**. It does **not** grant you any rights to the Aseprite software itself.  
+> Do **not** use this script to distribute or share compiled Aseprite builds unless you have a valid commercial license from https://aseprite.org.
+
 ## 📦 Aseprite Auto Build Script
 
 This script helps you automatically download, configure, compile, and package the latest **stable version** of [Aseprite](https://www.aseprite.org) on Windows using Visual Studio, CMake, Ninja, and Inno Setup.
