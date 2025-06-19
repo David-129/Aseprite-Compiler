@@ -121,7 +121,7 @@ CALL "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
 
 ## 🚀 How to Use Aseprite_Builder.bat
 
-1. **Download the script** `build_aseprite.bat`.
+1. **Download the script** `Aseprite_Builder.bat`.
 2. Place it in your desired folder (e.g., `D:\Project\aseprite_builder`).
 3. **Run the script by double-clicking** it or via command line.
 4. Wait ~5–10 minutes. If successful, the final `.exe` installer will be inside the `installer` folder.
