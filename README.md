@@ -55,6 +55,37 @@ You can edit `ROOT_DIR` inside the script if needed.
 
 ---
 
+## 🔧 Customizing Build Location
+
+By default, the script uses a fixed root path like:
+
+```bat
+set ROOT_DIR=D:\Project\aseprite_builder
+```
+
+You can easily change this to any other directory.  
+For example, to use drive E instead:
+
+```bat
+set ROOT_DIR=E:\Tools\MyAsepriteBuild
+```
+
+---
+
+### 🧳 Make It Portable (Optional)
+
+To make the script use the folder it's located in (no manual path edits), replace that line with:
+
+```bat
+set ROOT_DIR=%~dp0
+```
+
+This makes it **portable** — you can move the script anywhere, and it will always build in the same folder it's in.
+
+> 💡 `%~dp0` means "directory path of the current `.bat` script".
+
+---
+
 ## 🚀 How to Use
 
 1. **Download the script** `build_aseprite.bat`.
