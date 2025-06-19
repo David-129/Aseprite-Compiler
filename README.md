@@ -67,7 +67,7 @@ You can edit `ROOT_DIR` inside the script if needed.
 
 ## 📄 License
 
-This script is licensed under a [custom MIT-style license](./LICENSE) with added ethical restrictions.
+This script is licensed under a [custom MIT-style license](license) with added ethical restrictions.
 
 - ✅ You may use and modify this script for **personal and educational purposes**.
 - ❌ You may **not** use it to build or distribute **Aseprite binaries (.exe, installers, etc.)** without a valid license from the official developers.
