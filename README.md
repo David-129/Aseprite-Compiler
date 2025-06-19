@@ -90,7 +90,36 @@ This makes it **portable** — you can move the script anywhere, and it will alw
 
 ---
 
-## 🚀 How to Use
+### 🧭 Configure Visual Studio Path (Required)
+
+Before using the script, you must configure the correct path to Visual Studio's `vcvars64.bat`, which sets up the C++ build environment.
+
+Open `build_aseprite.bat`, and look for this line:
+
+```bat
+CALL "D:\vst_tools\VC\Auxiliary\Build\vcvars64.bat"
+```
+
+Replace it with the correct path to your installed Visual Studio.  
+A common default path for Visual Studio 2022 (Community edition) is:
+
+```bat
+CALL "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+```
+
+#### ✅ How to find `vcvars64.bat`
+
+1. Open **File Explorer**
+2. Go to: `C:\Program Files\Microsoft Visual Studio\`
+3. Use the search bar to look for `vcvars64.bat`
+4. Right-click → **Copy full path**
+5. Paste it in the script as shown above
+
+> ⚠️ If this file is not set correctly, the build will **fail**. This step is mandatory.
+
+---
+
+## 🚀 How to Use Aseprite_Builder.bat
 
 1. **Download the script** `build_aseprite.bat`.
 2. Place it in your desired folder (e.g., `D:\Project\aseprite_builder`).
