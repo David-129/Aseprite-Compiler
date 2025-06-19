@@ -17,7 +17,6 @@ This script helps you automatically download, configure, compile, and package th
 - Fully cleans old builds
 - Builds with Visual Studio + Ninja
 - Creates a Windows installer via Inno Setup
-- Ensures version number is correct in final binary
 
 ---
 
