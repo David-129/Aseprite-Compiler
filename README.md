@@ -52,7 +52,7 @@ D:\Project\aseprite_builder\
 ├── aseprite.zip        ← downloaded source
 ├── Skia-Windows-Release-x64.zip
 ├── aseprite_installer.iss
-├── build_aseprite.bat  ← this script
+├── Aseprite_Builder.bat  ← this script
 ```
 
 You can edit `ROOT_DIR` inside the script if needed.
