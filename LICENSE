@@ -7,8 +7,8 @@ of this script and associated documentation files (the "Software"), to deal in
 the Software without restriction, including without limitation the rights to
 use, copy, modify, merge, publish, and distribute, subject to the following conditions:
 
-1. This script is provided solely for educational and personal use to assist individuals
-   in building Aseprite from its publicly available source code.
+1. This script is intended solely for personal and educational purposes,
+   specifically to help individuals build Aseprite from publicly available source code for non-commercial use only.
 
 2. The Software must NOT be used to distribute, sell, or share compiled Aseprite binaries
    (including setup installers or any executable files), unless the end user holds a valid
@@ -21,7 +21,8 @@ use, copy, modify, merge, publish, and distribute, subject to the following cond
 4. This script must NOT be used as part of any commercial or unauthorized redistribution pipeline.
 
 5. You must retain this license and the copyright notice
-   in any copies, forks, or derivative scripts.
+   in any copies, forks, or derivative scripts, Forks or redistributions of this script (modified or unmodified)
+   must also include this license and must comply with all the restrictions outlined herein.
 
 6. This script is not affiliated with or endorsed by Aseprite or its developers.
 
