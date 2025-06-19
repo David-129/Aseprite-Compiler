@@ -94,7 +94,7 @@ This makes it **portable** — you can move the script anywhere, and it will alw
 
 Before using the script, you must configure the correct path to Visual Studio's `vcvars64.bat`, which sets up the C++ build environment.
 
-Open `build_aseprite.bat`, and look for this line:
+Open `Aseprite_Builder.bat`, and look for this line:
 
 ```bat
 CALL "D:\vst_tools\VC\Auxiliary\Build\vcvars64.bat"
