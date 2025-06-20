@@ -21,6 +21,7 @@ This script helps you automatically download, configure, compile, and package th
 - Fully cleans old builds
 - Builds with Visual Studio + Ninja
 - Creates a Windows installer via Inno Setup
+- Auto-detects Visual Studio installation
 
 ---
 
@@ -90,41 +91,13 @@ This makes it **portable** — you can move the script anywhere, and it will alw
 
 ---
 
-### 🧭 Configure Visual Studio Path (Required)
+### 🧭 Visual Studio Setup is Now Automatic
 
-Before using the script, you must configure the correct path to Visual Studio's `vcvars64.bat`, which sets up the C++ build environment.
+No manual configuration needed.  
+The script automatically detects your latest installed **Visual Studio Build Tools** using `vswhere.exe` and sets up the environment with `vcvars64.bat`.
 
-Open `Aseprite_Builder.bat`, and look for this line:
-
-```bat
-CALL "D:\vst_tools\VC\Auxiliary\Build\vcvars64.bat"
-```
-
-Replace it with the correct path to your installed Visual Studio.  
-A common default path for Visual Studio 2022 (Community edition) is:
-
-```bat
-CALL "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
-```
-
-#### ✅ How to find `vcvars64.bat`
-
-1. Open **File Explorer**
-2. Go to: `C:\Program Files\Microsoft Visual Studio\`
-3. Use the search bar to look for `vcvars64.bat`
-4. Right-click → **Copy full path**
-5. Paste it in the script as shown above
-
-> ⚠️ If this file is not set correctly, the build will **fail**. This step is mandatory.
-
----
-
-## 🚀 How to Use Aseprite_Builder.bat
-
-1. **Download the script** `Aseprite_Builder.bat`.
-2. Place it in your desired folder (e.g., `D:\Project\aseprite_builder`).
-3. **Run the script by double-clicking** it or via command line.
-4. Wait ~5–10 minutes. If successful, the final `.exe` installer will be inside the `installer` folder.
+> ⚠️ If Visual Studio is not installed, the script will show an error and exit.  
+> Make sure to install **Desktop development with C++** in Visual Studio Installer.
 
 ---
 
