@@ -101,9 +101,9 @@ The script automatically detects your latest installed **Visual Studio Build Too
 
 ---
 
-## 🚀 How to Use Aseprite_Builder.bat
+## 🚀 How to Use Aseprite_Compiler.bat
 
-1. **Download the script** Aseprite_Builder.bat.
+1. **Download the script** Aseprite_Compiler.bat.
 2. Place it in your desired folder (e.g., D:\Project\aseprite_builder).
 3. **Run the script by double-clicking** it or via command line.
 4. Wait ~5–10 minutes. If successful, the final .exe installer will be inside the installer folder.
