@@ -10,15 +10,9 @@
 setlocal enabledelayedexpansion
 title Build Aseprite - Clean Rebuild
 
-set ROOT=%~dp0
-cd /d "%ROOT%"
-
 echo WARNING: This script will DELETE build folders.
 echo DO NOT run outside its own directory.
 pause
-
-set /p CONFIRM=Type YES to continue: 
-if /I not "%CONFIRM%"=="YES" exit
 
 :: ==== Check Internet Connection ====
 powershell -Command "try { Invoke-WebRequest -Uri 'https://github.com' -UseBasicParsing -TimeoutSec 5 } catch { exit 1 }" >nul 2>nul || (
@@ -42,12 +36,16 @@ if not defined ASEPRITE_VERSION (
 )
 
 :: ==== Path Configuration ====
-set "ROOT_DIR=D:\Project\aseprite_builder"
+set ROOT=%~dp0
+cd /d "%ROOT%"
 set "ASEPRITE_DIR=%ROOT_DIR%\aseprite"
 set "BUILD_DIR=%ROOT_DIR%\build"
 set "SKIA_DIR=%ROOT_DIR%\skia"
 set "INSTALLER_DIR=%ROOT_DIR%\installer"
 set "ISS_FILE=%ROOT_DIR%\aseprite_installer.iss"
+
+set /p CONFIRM=Type YES to continue: 
+if /I not "%CONFIRM%"=="YES" exit
 
 echo === Controlled clean: selected folders and files only ===
 
