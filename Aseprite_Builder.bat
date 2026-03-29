@@ -302,12 +302,7 @@ powershell -Command "Expand-Archive -Force '%ASEPRITE_ZIP%' '%ASEPRITE_DIR%'" ||
 :: ==== Fetch Skia URL from GitHub API ====
 echo === Fetching Skia download URL from GitHub API ===
 
-powershell -Command ^
-"$r = Invoke-WebRequest -UseBasicParsing https://api.github.com/repos/aseprite/skia/releases/latest; ^
-$json = $r.Content | ConvertFrom-Json; ^
-$asset = $json.assets | Where-Object { $_.name -like $_.name -like '*x64*.zip' } | Select-Object -First 1; ^
-if ($asset -ne $null) { $asset.browser_download_url } else { Write-Error 'Skia asset not found'; exit 1 }" ^
-> "%ROOT_DIR%\skia_url.txt"
+powershell -Command "$r = Invoke-WebRequest -UseBasicParsing https://api.github.com/repos/aseprite/skia/releases/latest; $json = $r.Content | ConvertFrom-Json; $asset = $json.assets | Where-Object { $_.name -like '*x64*.zip' } | Select-Object -First 1; if ($asset -ne $null) { $asset.browser_download_url } else { exit 1 }" > "%ROOT_DIR%\skia_url.txt"
 
 if %errorlevel% neq 0 (
     echo [!] Failed to get Skia download URL!
@@ -335,10 +330,7 @@ for /f %%f in ('powershell -Command "$url = '%SKIA_ZIP_URL%'; Split-Path -Leaf $
 if not exist "%SKIA_ZIP%" (
     echo === Downloading Skia from: %SKIA_ZIP_URL%
 
-    powershell -Command ^
-    "$url = '%SKIA_ZIP_URL%'; ^
-    $filename = Split-Path -Leaf $url; ^
-    Invoke-WebRequest -Uri $url -OutFile (Join-Path '%ROOT_DIR%' $filename)" || (
+    powershell -Command "$url = '%SKIA_ZIP_URL%'; $filename = Split-Path -Leaf $url; Invoke-WebRequest -Uri $url -OutFile (Join-Path '%ROOT_DIR%' $filename)" || (
         echo [!] Error downloading Skia ZIP!
         pause
         exit /b
