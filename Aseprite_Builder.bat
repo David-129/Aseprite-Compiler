@@ -330,7 +330,7 @@ for /f %%f in ('powershell -Command "$url = '%SKIA_ZIP_URL%'; Split-Path -Leaf $
 if not exist "%SKIA_ZIP%" (
     echo === Downloading Skia from: %SKIA_ZIP_URL%
 
-    powershell -Command "$url = '%SKIA_ZIP_URL%'; $filename = Split-Path -Leaf $url; Invoke-WebRequest -Uri $url -OutFile (Join-Path '%ROOT_DIR%' $filename)" || (
+    powershell -Command "Invoke-WebRequest -Uri '%SKIA_ZIP_URL%' -OutFile '%SKIA_ZIP%'" || (
         echo [!] Error downloading Skia ZIP!
         pause
         exit /b
