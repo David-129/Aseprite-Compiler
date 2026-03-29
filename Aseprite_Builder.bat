@@ -35,8 +35,7 @@ if not defined ASEPRITE_VERSION (
 )
 
 :: ==== Path Configuration ====
-set ROOT=%~dp0
-cd /d "%ROOT%"
+set ROOT_DIR=D:\Project\Aseprite-Compiler
 set "ASEPRITE_DIR=%ROOT_DIR%\aseprite"
 set "BUILD_DIR=%ROOT_DIR%\build"
 set "SKIA_DIR=%ROOT_DIR%\skia"
@@ -302,7 +301,7 @@ powershell -Command "Expand-Archive -Force '%ASEPRITE_ZIP%' '%ASEPRITE_DIR%'" ||
 :: ==== Fetch Skia URL from GitHub API ====
 echo === Fetching Skia download URL from GitHub API ===
 
-powershell -Command "$r = Invoke-WebRequest -UseBasicParsing https://api.github.com/repos/aseprite/skia/releases/latest; $json = $r.Content | ConvertFrom-Json; $asset = $json.assets | Where-Object { $_.name -like '*x64*.zip' } | Select-Object -First 1; if ($asset -ne $null) { $asset.browser_download_url } else { exit 1 }" > "%ROOT_DIR%\skia_url.txt"
+powershell -Command "$r = Invoke-WebRequest -UseBasicParsing https://api.github.com/repos/aseprite/skia/releases/latest; $json = $r.Content | ConvertFrom-Json; $asset = $json.assets | Where-Object { $_.name -like '*Windows*Release*x64*.zip' } | Select-Object -First 1; if ($asset -ne $null) { $asset.browser_download_url } else { exit 1 }" > "%ROOT_DIR%\skia_url.txt"
 
 if %errorlevel% neq 0 (
     echo [!] Failed to get Skia download URL!
