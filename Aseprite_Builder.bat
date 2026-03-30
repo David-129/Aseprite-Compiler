@@ -7,7 +7,7 @@
 :: ===============================================
 
 @echo off
-title Build Aseprite - Clean Rebuild
+title Aseprite Compiler - Clean Rebuild
 
 echo WARNING: This script will DELETE build folders.
 echo DO NOT run outside its own directory.
