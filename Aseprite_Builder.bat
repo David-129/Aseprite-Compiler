@@ -7,7 +7,6 @@
 :: ===============================================
 
 @echo off
-setlocal enabledelayedexpansion
 title Build Aseprite - Clean Rebuild
 
 echo WARNING: This script will DELETE build folders.
@@ -403,8 +402,8 @@ if exist "%ISS_FILE%" del /f /q "%ISS_FILE%"
 )
 
 :: ==== Check and auto-install Inno Setup (ISCC) if missing ====
-set "INNO_EXE_URL=https://github.com/jrsoftware/issrc/releases/download/is-6_7_1/innosetup-6.7.1.exe"
-set "INNO_EXE=%ROOT_DIR%\innosetup-6.7.1.exe"
+
+set "INNO_EXE=%ROOT_DIR%\innosetup.exe"
 set "INNO_DIR=%ROOT_DIR%\innosetup"
 
 echo === Checking for Inno Setup (ISCC.exe) ===
@@ -422,9 +421,30 @@ for %%F in (
     )
 )
 
-:: If not found, proceed to download and install
-echo [!] ISCC.exe not found. Proceeding to download and install Inno Setup...
+:: ==== Only fetch & download if NOT found ====
 
+echo [!] ISCC.exe not found. Fetching from GitHub...
+
+powershell -Command "$r = Invoke-WebRequest -UseBasicParsing https://api.github.com/repos/jrsoftware/issrc/releases/latest; $json = $r.Content | ConvertFrom-Json; $asset = $json.assets | Where-Object { $_.name -like 'innosetup-*.exe' } | Select-Object -First 1; if ($asset) { $asset.browser_download_url } else { exit 1 }" > "%ROOT_DIR%\inno_url.txt"
+
+if %errorlevel% neq 0 (
+    echo [!] Failed to get Inno Setup URL!
+    type "%ROOT_DIR%\inno_url.txt"
+    pause
+    exit /b
+)
+
+set /p INNO_EXE_URL=<"%ROOT_DIR%\inno_url.txt"
+
+if not defined INNO_EXE_URL (
+    echo [!] Inno Setup URL is empty!
+    pause
+    exit /b
+)
+
+echo === Inno Setup URL: %INNO_EXE_URL%
+
+echo === Downloading Inno Setup ===
 powershell -Command "Invoke-WebRequest -Uri '%INNO_EXE_URL%' -OutFile '%INNO_EXE%'" || (
     echo [!] Failed to download Inno Setup installer!
     pause
